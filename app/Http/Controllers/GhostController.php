@@ -19,10 +19,15 @@ class GhostController extends Controller
             ->get();
 
         $stats = [
-            "total"      => $ghosts->count(),
-            "assigned"   => $ghosts->whereNotNull("location_id")->count(),
-            "unassigned" => $ghosts->whereNull("location_id")->count(),
-            "expired"    => $ghosts->filter(fn($g) => $g->isExpired())->count(),
+            "total"      => $ghosts
+                ->count(),
+            "assigned"   => $ghosts
+                ->whereNotNull("location_id")->count(),
+            "unassigned" => $ghosts
+                ->filter(fn($g) => $g->location_id === null && !$g->isExpired())
+                ->count(),
+            "expired"    => $ghosts
+                ->filter(fn($g) => $g->isExpired())->count(),
         ];
 
         return view("ghosts.index", compact("ghosts", "stats"));
