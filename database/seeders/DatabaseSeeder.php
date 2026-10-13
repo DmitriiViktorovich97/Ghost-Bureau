@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             ['name'=>'Зеркальное Эхо','anxiety_level'=>9,'favorite_temperature'=>'cold','deadline'=>now()->addDays(2)->toDateString(),'special_conditions'=>['fears_mirrors','no_humans_nearby','fears_light']],
             ['name'=>'Дядюшка Сквозняк','anxiety_level'=>2,'favorite_temperature'=>'cold','deadline'=>now()->subDays(1)->toDateString(),'special_conditions'=>['likes_damp']],
             ['name'=>'Леди Тишина','anxiety_level'=>10,'favorite_temperature'=>'cold','deadline'=>now()->addDays(1)->toDateString(),'special_conditions'=>['needs_quiet','fears_light','fears_mirrors','no_humans_nearby','likes_damp']],
-            ['name'=>'Ууууу Бугаганович','anxiety_level'=>5,'favorite_temperature'=>'neutral','deadline'=>now()->addDays(15)->toDateString(),'special_conditions'=>['needs_attic','fears_mirrors','no_humans_nearby']],
+            ['name'=>'Хранитель Чердаков','anxiety_level'=>5,'favorite_temperature'=>'neutral','deadline'=>now()->addDays(15)->toDateString(),'special_conditions'=>['needs_attic','fears_mirrors','no_humans_nearby']],
         ];
 
         foreach ($ghosts as $g) Ghost::create($g);
