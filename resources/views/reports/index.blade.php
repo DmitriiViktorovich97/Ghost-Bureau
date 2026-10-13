@@ -90,7 +90,7 @@
                     <tr class="border-t border-slate-800">
                         <td class="px-4 py-3">{{ $loc->name }}</td>
                         <td class="px-4 py-3 text-slate-400">{{ $loc->type }}</td>
-                        <td class="px-4 py-3 {{ $loc->ghosts_count >= $loc->capacity ? 'text-red-400' : '' }}">{{ $loc->ghosts_count }}
+                        <td class="px-4 py-3 {{ $loc->ghosts_count > $loc->capacity ? 'text-red-400' : '' }}">{{ $loc->ghosts_count }}
                             / {{ $loc->capacity }}</td>
                         <td class="px-4 py-3 {{ $free > 0 ? 'text-emerald-400' : 'text-slate-500' }}">{{ $free }}</td>
                     </tr>
