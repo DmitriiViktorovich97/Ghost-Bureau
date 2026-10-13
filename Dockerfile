@@ -20,6 +20,6 @@ RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cac
 
 EXPOSE 3000
 
-CMD php artisan migrate --force \
+CMD php artisan migrate --force --seed \
  && php artisan config:cache \
  && php artisan serve --host=0.0.0.0 --port=3000
