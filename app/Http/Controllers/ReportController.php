@@ -13,9 +13,13 @@ class ReportController extends Controller
         $locations = Location::withCount("ghosts")->get();
 
         $total      = $ghosts->count();
-        $assigned   = $ghosts->whereNotNull("location_id")->count();
-        $unassigned = $ghosts->whereNull("location_id")->count();
-        $expired    = $ghosts->filter(fn($g) => $g->isExpired())->count();
+        $assigned   = $ghosts
+            ->whereNotNull("location_id")->count();
+        $unassigned = $ghosts
+            ->filter(fn($g) => $g->location_id === null && !$g->isExpired())
+            ->count();
+        $expired    = $ghosts
+            ->filter(fn($g) => $g->isExpired())->count();
 
         $problemGhosts = $ghosts
             ->filter(fn($g) => $g->location_id === null || ($g->match_score !== null && $g->match_score < 70))
