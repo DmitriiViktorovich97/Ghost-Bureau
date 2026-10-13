@@ -11,7 +11,7 @@
     <header class="mb-10">
         <h1 class="text-4xl font-bold mb-2">Сценарии проверки</h1>
         <p class="text-slate-400">Ручные и автоматические тесты приложения</p>
-        <a href="{{ route('ai-worklog') }}" class="text-sky-400 hover:underline text-sm">← AI Worklog</a>
+        <a href="{{ url('/') }}" class="text-sky-400 hover:underline text-sm">&larr; на главную</a>
     </header>
 
     @php
